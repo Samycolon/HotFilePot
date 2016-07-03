@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<!--
+/*
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+<!-- Force latest IE rendering engine or ChromeFrame if installed -->
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+<meta charset="utf-8">
+<title>Gallery</title>
+<meta name="description" content="File Upload">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="css/justifiedGallery.css" />
+<script src="js/jquery.justifiedGallery.js"></script>
+
+<!-- Demo styles -->
+<link rel="stylesheet" href="css/demo.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="css/demo-ie8.css">
+<![endif]-->
+
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
+
+</head>
+<body>
+<script>
+$('#gallery').justifiedGallery({rowHeight:120});
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        for (var i = 0; i < 5; i++) {
+            $('#gallery').append('<a>' +
+                '<img src="/server/php/files" />' + 
+                '</a>');
+        }
+        $('#gallery').justifiedGallery('norewind');
+    }
+});
+
+</script>
+</body>
+</html>
